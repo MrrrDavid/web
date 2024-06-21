@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript для начинающих</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Добро пожаловать в мир JavaScript!</h1>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Что такое JavaScript и зачем он нужен?</h2>
+            <p>
+                JavaScript - это язык программирования, который делает сайты
+                интерактивными и динамичными. Представьте себе скучный сайт со
+                статичными картинками и текстом. JavaScript вдохнёт в него жизнь!
+            </p>
+            <ul>
+                <li>Анимация и визуальные эффекты</li>
+                <li>Обработка действий пользователя (клики, ввод текста)</li>
+                <li>Отправка данных на сервер и получение ответов без перезагрузки страницы</li>
+                <li>Создание игр и интерактивных приложений</li>
+            </ul>
+            <h2>Где JavaScript не нужен?</h2>
+            <p>
+                JavaScript не нужен для создания простых статичных сайтов, где
+                контент не меняется динамически. Также, он не используется для
+                управления серверными процессами или базами данных.
+            </p>
+        </section>
+
+        <section id="examples">
+            <h2>Примеры использования JavaScript:</h2>
+            <div>
+                <button onclick="hideCode()" style="background-color: red">Скрыть код</button>
+            </div>
+            <nav>
+                <p>Homework 1</p>
+                <button onclick="task0()">Задача 0</button>
+                <button onclick="task1()">Задача 1</button>
+                <button onclick="task2()">Задача 2</button>
+                <button onclick="task3()">Задача 3</button>
+                <button onclick="task4()">Задача 4</button>
+                <button onclick="task5()">Задача 5</button>
+                <button onclick="task6()">Задача 6</button>
+            </nav>
+            <div id="codeOutput1">
+
+                <ul id="myList"></ul>
+
+            </div>
+            <nav>
+                <p>Homework 2</p>
+                <button onclick="task7()">Задача 0</button>
+                <button onclick="task8()">Задача 1</button>
+                <button onclick="task9()">Задача 2</button>
+                <button onclick="task10()">Задача 3</button>
+                <button onclick="task11()">Задача 4</button>
+                <button onclick="task12()">Задача 5</button>
+                <button onclick="task13()">Задача 6</button>
+                <button onclick="task14()">Задача 7</button>
+                <button onclick="task15()">Задача 8</button>
+                <button onclick="task16()">Задача 9</button>
+            </nav>
+            <div id="codeOutput2"></div>
+
+        </section>
+
+        <section id="quiz">
+            <h2>Проверьте свои знания (JS Quiz):</h2>
+            <form id="jsQuizForm">
+                <div>
+                    <p>1. Как объявить переменную в JavaScript?</p>
+                    <label>
+                        <input type="radio" name="q1" value="a"> a) var myVar;
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b"> b) variable myVar;
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="c"> c) int myVar;
+                    </label>
+                </div>
+
+                <div>
+                    <p>2. Какой оператор используется для проверки равенства значения и типа данных?</p>
+                    <label>
+                        <input type="radio" name="q2" value="a"> a) =
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b"> b) ==
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="c"> c) ===
+                    </label>
+                </div>
+
+                <div>
+                    <p>3. Как вывести сообщение в консоль браузера?</p>
+                    <label>
+                        <input type="radio" name="q3" value="a"> a) alert("Сообщение");
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="b"> b) console.log("Сообщение");
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="c"> c) print("Сообщение");
+                    </label>
+                </div>
+                <div>
+                    <p>4. Что такое DOM?</p>
+                    <label>
+                        <input type="radio" name="q4" value="a"> a) Document Object Model;
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="b"> b) Document Order Model;
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="c"> c) Data Object Model;
+                    </label>
+                </div>
+                <div>
+                    <p>5. Как получить доступ к элементу HTML по его ID?</p>
+                    <label>
+                        <input type="radio" name="q5" value="a"> a) getElementById();
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="b"> b) getElement(id);
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="c"> c) findElmentById();
+                    </label>
+                </div>
+                <div>
+                    <p>6. Какой тип данных используется для хранения набора значений?</p>
+                    <label>
+                        <input type="radio" name="q6" value="a"> a) object;
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="b"> b) array;
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="c"> c) string;
+                    </label>
+                </div>
+                <div>
+                    <p>7. Какой оператор используется для объединения двух строк?</p>
+                    <label>
+                        <input type="radio" name="q7" value="a"> a) +;
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="b"> b) &;
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="c"> c) .;
+                    </label>
+                </div>
+                <div>
+                    <p>8. Как вызвать функцию с именем "myFunction"?</p>
+                    <label>
+                        <input type="radio" name="q8" value="a"> a) call myFunction();
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="b"> b) myFunction();
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="c"> c) function myFunction();
+                    </label>
+                </div>
+                <div>
+                    <p>9. Что такое JSON?</p>
+                    <label>
+                        <input type="radio" name="q9" value="a"> a) JavaScript Object Notation;
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="b"> b) Java Script Object Notation;
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="c"> c) JavaScript Oriented Notation;
+                    </label>
+                </div>
+                <div>
+                    <p>10. Какой метод используется для добавления элемента в конец массива?</p>
+                    <label>
+                        <input type="radio" name="q10" value="a"> a) push();
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="b"> b) append();
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="c"> c) addToEnd();
+                    </label>
+                </div>
+
+
+
+                <button type="button" onclick="checkQuiz()">Проверить ответы</button>
+
+            </form>
+
+            <div id="quizResults"></div>
+        </section>
+
+    </main>
+    <script>
+
+        function showQuiz() {
+            document.getElementById('quiz').style.display = 'block';
+        }
+
+        function checkQuiz() {
+
+            const answers = {
+                q1: 'a',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b',
+                q5: 'a',
+                q6: 'b',
+                q7: 'a',
+                q8: 'b',
+                q9: 'a',
+                q10: 'a',
+                // ... ответы на остальные вопросы
+            };
+
+
+            let score = 0;
+            let resultsHtml = '<h3>Результаты:</h3>';
+
+            for (let i = 1; i <= 10; i++) {
+                const questionName = 'q' + i;
+                const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
+
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === answers[questionName]) {
+                        score++;
+                        resultsHtml += `<p class="correct">Вопрос ${i}: Верно!</p>`;
+                    } else {
+                        resultsHtml += `<p class="incorrect">Вопрос ${i}: Неверно. Правильный ответ: ${answers[questionName].toLowerCase()}</p>`;
+                    }
+                } else {
+                    resultsHtml += `<p class="incorrect">Вопрос ${i}: Не ответили.</p>`;
+                }
+            }
+
+            resultsHtml += `<p>Ваш результат: ${score} из 10</p>`;
+            document.getElementById('quizResults').innerHTML = resultsHtml;
+        }
+    </script>
+
+    <script>
+        function hideCode() {
+
+            let codeExample = ''
+            document.getElementById('codeOutput1').innerText = codeExample;
+            document.getElementById('codeOutput2').innerText = codeExample;
+
+            var ul = document.getElementById('myList');
+            if (ul) {
+                while (ul.firstChild) {
+                    ul.removeChild(ul.firstChild);
+                }
+            }
+
+        }
+
+
+        function task0() {
+            let codeExample = `
+Задание: создать переменную, узнать ее тип, добавить вывод на экран текста, в зависимости от значения (if else)
+
+        let myVariable = "Hello"
+        console.log("Тип переменной myVAriable: " , typeof myVariable)
+            if(myVariable ==="Hello"){
+            console.log("Приветствие")
+            }else if(myVariable ==="Goodbye"){
+         console.log("Прощание")
+            }else{
+         console.log("Неизвестное значение")
+            }
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            let myVariable = "Hello"
+            console.log("Тип переменной myVAriable: ", typeof myVariable)
+            if (myVariable === "Hello") {
+                console.log("Приветствие")
+            } else if (myVariable === "Goodbye") {
+                console.log("Прощание")
+            } else {
+                console.log("Неизвестное значение")
+            }
+
+        }
+
+        function task1() {
+            let codeExample = `
+Задание: запросить у пользователя знак зодиака, и в зависимости от ответа выдать всплывающее окно приветствия (вместо знака зодиака, можно запросить другие данные, предполагающие несколько вариантов ответа) (switch)
+
+        const znak = prompt("Напишите свой знак зодиака", "");
+            if (znak.toLowerCase === "телец".valueOf) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "овен".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "близнецы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "рак".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "лев".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "дева".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "весы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "скорпион".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "стрелец".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "козерог".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "водолей".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "рыбы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.trim() == "".valueOf()) {
+                alert("Вы ввели пустоту");
+            } else {
+                alert("Такого знака зодиака не существует: " + znak);
+            }
+      `;
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            const znak = prompt("Напишите свой знак зодиака", "");
+            if (znak.toLowerCase === "телец".valueOf) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "овен".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "близнецы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "рак".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "лев".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "дева".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "весы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "скорпион".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "стрелец".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "козерог".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "водолей".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.toLowerCase() == "рыбы".valueOf()) {
+                alert("Привет : " + znak);
+            } else if (znak.trim() == "".valueOf()) {
+                alert("Вы ввели пустоту");
+            } else {
+                alert("Такого знака зодиака не существует: " + znak);
+            }
+        }
+
+        function task2() {
+
+            let codeExample = `
+            Задание: вывести все числа от 1 до 40, с использованием 3-х разных циклов
+          for (var i = 1; i <= 40; i++) {
+             console.log(i);
+             myArray.push(i);
+            }
+
+            let chislo = 1;
+
+            while (chislo <= 40) {
+             console.log(chislo);
+             chislo++;
+                }
+
+                chislo = 1;
+
+                do {
+                 console.log(chislo);
+                 chislo++;
+                } while (chislo <= 40);
+
+      `;
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            const myArray = new Array();
+
+            for (var i = 1; i <= 40; i++) {
+                console.log(i);
+                myArray.push(i);
+            }
+
+            let chislo = 1;
+
+            while (chislo <= 40) {
+                console.log(chislo);
+                chislo++;
+            }
+
+            chislo = 1;
+
+            do {
+                console.log(chislo);
+                chislo++;
+            } while (chislo <= 40);
+        }
+
+        function task3() {
+            let codeExample = `
+            Задание: создайте вирусную страницу с постоянно повторяющемся сообщением
+          while (true) {
+                alert("Привет!");
+            }
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            while (true) {
+                alert("Привет!");
+            }
+        }
+
+
+        function task4() {
+            let codeExample = `
+Задание 4: Запросить у пользователя любое число больше 5, в случае правильного ответа выдать окошко с поздравлением, в случае неправильного ответа вывести повторное окно с вопросом (помните, что пользователь может нажать "отмена", помните о типах данных)
+         
+let flag = true;
+
+while (flag) {
+  let znak = prompt("Напишите число, которое больше 5", "");
+  if (znak === null) {
+    continue;
+  }
+  if (parseFloat(znak) !== NaN) {
+    if (znak > 5) {
+      alert("Поздравляем, вы все праивльно ввели!");
+      flag = false;
+      continue;
+    } else {
+      alert("Вы ввели число, которое меньше 5!");
+      continue;
+    }
+  } else if (znak.trim() == "".valueOf()) {
+    alert("Вы ввели пустоту");
+  } else {
+    alert("Попробуйте ввести ещё раз!");
+  }
+}
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            let flag = true;
+
+            while (flag) {
+                let znak = prompt("Напишите число, которое больше 5", "");
+                if (znak === null) {
+                    continue;
+                }
+                if (parseFloat(znak) !== NaN) {
+                    if (znak > 5) {
+                        alert("Поздравляем, вы все праивльно ввели!");
+                        flag = false;
+                        continue;
+                    } else {
+                        alert("Вы ввели число, которое меньше 5!");
+                        continue;
+                    }
+                } else if (znak.trim() == "".valueOf()) {
+                    alert("Вы ввели пустоту");
+                } else {
+                    alert("Попробуйте ввести ещё раз!");
+                }
+            }
+        }
+        function task5() {
+            let codeExample = `
+            Задание 5: выведите четные числа от 8 до 20
+          for (var i = 8; i <= 20; i += 2) {
+  console.log(i);
+}
+
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            for (var i = 8; i <= 20; i += 2) {
+                console.log(i);
+            }
+
+
+        }
+        function task6() {
+            let codeExample = `
+            Задание 6: выведите нечетные числа от 1 до 7, пропустив 5
+          for (var i = 1; i <= 7; i++) {
+  if (i % 2 != 0 && i != 5) {
+    console.log(i);
+  }
+}
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            for (var i = 1; i <= 7; i++) {
+                if (i % 2 != 0 && i != 5) {
+                    console.log(i);
+                }
+            }
+        }
+
+        function task7() {
+            let codeExample = `
+            Задание 0: создать массив 3 разными способами
+
+          const array1 = [1, 2, 3];
+const array2 = new Array(3);
+const array3 = new Array(3, 4, 5);
+console.log(array1);
+console.log(array2);
+console.log(array3);
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            const array1 = [1, 2, 3];
+            const array2 = new Array(3);
+            const array3 = new Array(3, 4, 5);
+            console.log(array1);
+            console.log(array2);
+            console.log(array3);
+        }
+
+        function task8() {
+            let codeExample = `
+            Задание 1: выведите на экран 5 член вашего массива затем измените его значение 
+         const array1 = new Array(1, 2, 3, 4, 5);
+console.log(array1[4]);
+array1[4] = 10;
+console.log(array1[4]);
+      `;
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            const array1 = new Array(1, 2, 3, 4, 5);
+            console.log(array1[4]);
+            array1[4] = 10;
+            console.log(array1[4]);
+        }
+
+
+        function task9() {
+            let codeExample = `
+            Задание 2: узнайте длину вашего массива и выведите ее значение при наведении на любой элемент
+
+        document.addEventListener(DOMContentLoaded, function () {
+  const data = ["Apple", "Banana", "Orange"];
+  const list = document.getElementById("myList");
+
+  data.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    li.index = index;
+    list.appendChild(li);
+  });
+  list.querySelectorAll("li").forEach((element) => {
+    element.addEventListener("mouseenter", function () {
+      console.log(Длина массива: {data.length});
+      console.log(Индекс элемента: {this.index});
+    });
+  });
+});
+            
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            document.addEventListener(`DOMContentLoaded`, function () {
+
+                const data = ["Apple", "Banana", "Orange"];
+                const list = document.getElementById("myList");
+                data.forEach((item, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    li.index = index;
+                    list.appendChild(li);
+                });
+                list.querySelectorAll("li").forEach((element) => {
+                    element.addEventListener("mouseenter", function () {
+                        console.log(`Длина массива: ${data.length}`);
+                        console.log(`Индекс элемента: ${this.index}`);
+                    });
+                });
+            });
+
+        }
+
+        function task10() {
+
+            let codeExample = `
+            Задание 3: Выведите все элементы массива, используя цикл for
+
+            const array2 = [1,2,3,4,5,6,7]
+console.log("Элементы массива (for):");
+for (let i = 0; i < array2.length; i++) {
+  console.log(array2[i]);
+}
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            const array2 = [1, 2, 3, 4, 5, 6, 7]
+            console.log("Элементы массива (for):");
+            for (let i = 0; i < array2.length; i++) {
+                console.log(array2[i]);
+            }
+
+        }
+
+
+        function task11() {
+            let codeExample = `
+            Задание 4: Cоздайте 2 массива. Объедините их в один и выведите на экран полученный массив
+
+const array2 = [10,11,12,13]
+let combinedArray = array1.concat(array2);
+console.log("Объединенный массив:", combinedArray);
+          
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+            const array1 = [1, 2, 3, 4, 5, 6]
+            const array2 = [10, 11, 12, 13]
+            let combinedArray = array1.concat(array2);
+            console.log("Объединенный массив:", combinedArray);
+        }
+
+
+        function task12() {
+            let codeExample = `
+            Задание 5: Удалите последний член получившегося массива и выведите это значение на экран
+
+        const combinedArray = ['Apple','Origin','Banana']
+let lastElement = combinedArray.pop(); 
+console.log("Удаленный элемент:", lastElement);
+console.log("Массив после удаления:", combinedArray);
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            const combinedArray = ['Apple', 'Origin', 'Banana']
+            let lastElement = combinedArray.pop();
+            console.log("Удаленный элемент:", lastElement);
+            console.log("Массив после удаления:", combinedArray);
+
+        }
+
+
+        function task13() {
+            let codeExample = `
+            Задание 6: Удалите последний член получившегося массива и выведите это значение на экран
+
+const combinedArray = ['Apple','Origin','Banana']
+combinedArray.unshift("новый элемент");
+console.log("Массив с новым элементом:", combinedArray);
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            const combinedArray = ['Apple', 'Origin', 'Banana']
+            combinedArray.unshift("новый элемент");
+            console.log("Массив с новым элементом:", combinedArray);
+
+        }
+
+        function task14() {
+            let codeExample = `
+            Задание 7: Добавьте новый элемент в начало вашего объединенного массива
+
+let today = new Date();
+console.log("Сегодняшняя дата:", today);
+
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            let today = new Date();
+            console.log("Сегодняшняя дата:", today);
+
+        }
+
+
+        function task15() {
+            let codeExample = `
+            Задание 8: let date = new Date(2020, 10, 11);
+             
+            Месяцы начинаются с 0 (январь - 0)
+let options = { day: 'numeric', month: 'long', year: 'numeric' };
+let formattedDate = date.toLocaleDateString("ru-RU", options); 
+console.log("Отформатированная дата:", formattedDate);
+
+
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+            let date = new Date(2020, 10, 11); // Месяцы начинаются с 0 (январь - 0)
+            let options = { day: 'numeric', month: 'long', year: 'numeric' };
+            let formattedDate = date.toLocaleDateString("ru-RU", options);
+            console.log("Отформатированная дата:", formattedDate);
+        }
+
+        function task16() {
+
+            let codeExample = `
+            Задание 9: Выведите сегодняшнюю дату в формате 11 ноября 2020 года
+
+function multiplyRandom() {
+    let num1 = Math.floor(Math.random() * 51); // Случайное от 0 до 50
+    let num2 = Math.floor(Math.random() * 51);
+    return num1 * num2;
+}
+let result = multiplyRandom();
+console.log("Произведение случайных чисел:", result);
+      `;
+
+            document.getElementById('codeOutput1').innerText = codeExample;
+
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
